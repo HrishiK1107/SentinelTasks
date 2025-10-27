@@ -1,0 +1,22 @@
+version: 0.2
+
+phases:
+  install:
+    runtime-versions:
+      python: 3.13 # Make sure this matches your Lambda runtime
+    commands:
+      - echo "Installing AWS SAM CLI..."
+      - pip install aws-sam-cli
+  build:
+    commands:
+      - echo "Building the SAM application..."
+      # This command runs from the project root and finds template.yaml there.
+      # It packages your Lambda functions from the /backend folder.
+      - sam build
+
+artifacts:
+  # The output of `sam build` is in the .aws-sam/build directory.
+  # We package this entire directory as the output artifact.
+  base-directory: '.aws-sam/build'
+  files:
+    - '**/*'
