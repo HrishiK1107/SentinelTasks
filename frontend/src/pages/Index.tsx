@@ -194,7 +194,7 @@ const Index = () => {
         {/* Header */}
         <header className="text-center mb-12">
           <h1 className="text-4xl font-bold text-foreground mb-2">
-            My Task Tracker
+            My Automated Task Tracker
           </h1>
           <p className="text-muted-foreground">
             Stay organized and productive
