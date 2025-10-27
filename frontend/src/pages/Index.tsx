@@ -19,7 +19,7 @@ const Index = () => {
   const { toast } = useToast();
 
   // API endpoint - configure this to point to your AWS API Gateway
-  const API_BASE_URL = "/api"; // Change this to your API Gateway URL when ready
+  const API_BASE_URL = 'https://99n2freqz5.execute-api.ap-south-1.amazonaws.com/prod'; // Change this to your API Gateway URL when ready
 
   // Fetch tasks on component mount
   useEffect(() => {
