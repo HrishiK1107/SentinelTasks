@@ -6,7 +6,7 @@ Description: >
 Globals:
   Function:
     Timeout: 10
-    Runtime: python3.11 # Change this to python3.13 if that's what you used
+    Runtime: python3.13 # Change this to python3.13 if that's what you used
     MemorySize: 128
     Environment:
       Variables:
