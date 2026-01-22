@@ -1,4 +1,5 @@
-# Full-Stack Serverless Task Tracker: Secured CI/CD 🛡️
+# 🛡️ SentinelTasks  
+### Full-Stack Serverless Task Tracker with Automated CI/CD
 
 This project is a complete full-stack, serverless web application that demonstrates **advanced security**, **full automation**, and modern cloud architecture on AWS.
 
@@ -41,17 +42,40 @@ This project uses a decoupled, secure serverless design built entirely on AWS.
 * **Full-Stack Development:** Integrated a **React (TypeScript) frontend** with a **Python (Boto3) backend** for full data flow.
 
 ---
+## ⚙️ CI/CD Pipeline Overview
 
-## ⚙️ The CI/CD Pipeline
+Two parallel pipelines are triggered automatically on every push to the `main` branch.
 
-This project features two distinct, parallel pipelines that are both triggered by a `git push` to the `main` branch.
+### Frontend Pipeline  
+**Pipeline Name:** `task-tracker-frontend-pipeline`
 
-1.  **Frontend Pipeline (`task-tracker-frontend-pipeline`):**
-    * **Source:** Detects a change in the `/frontend` directory.
-    * **Build:** Runs `npm install` and `npm run build` inside CodeBuild.
-    * **Deploy:** Copies the compiled assets to S3 and invalidates CloudFront.
+1. Detects changes in the `/frontend` directory  
+2. Runs `npm install` and `npm run build` in CodeBuild  
+3. Uploads build artifacts to Amazon S3  
+4. Invalidates CloudFront cache automatically
 
-2.  **Backend Pipeline (`task-tracker-backend-pipeline`):**
-    * **Source:** Detects a change in the `/backend` directory or the root `template.yaml`.
-    * **Build:** Uses the SAM CLI (`sam build`) to package the Python Lambda functions.
-    * **Deploy:** Uses AWS CloudFormation to deploy the updated backend infrastructure, including the **Cognito Authorizer configuration**.
+### Backend Pipeline  
+**Pipeline Name:** `task-tracker-backend-pipeline`
+
+1. Detects changes in `/backend` or `template.yaml`  
+2. Packages Lambda functions using `sam build`  
+3. Deploys infrastructure using CloudFormation  
+4. Updates API Gateway, Lambda functions, IAM roles, and DynamoDB
+
+---
+
+## 📁 Repository Structure
+
+- `frontend/` – React + Tailwind frontend  
+- `backend/` – Python AWS Lambda functions  
+- `template.yaml` – AWS SAM / CloudFormation template  
+- `README.md` – Project documentation
+
+---
+
+## 📌 Summary
+
+SentinelTasks demonstrates the design and deployment of a modern serverless application using AWS managed services.  
+It highlights practical experience with cloud architecture, CI/CD automation, and production-grade deployments.
+
+--- 
